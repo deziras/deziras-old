@@ -9,14 +9,14 @@ import java.io.StringReader;
  * @author Glavo
  * @version 1.0.0
  */
-public final class JSONString extends JSON {
+public final class JsonString implements JsonValue {
     private final String value;
 
-    public JSONString(String v) {
+    public JsonString(String v) {
         this.value = v;
     }
 
-    public static JSONString parseString(String s) throws IOException, StringParseException {
+    public static JsonString parseString(String s) throws IOException {
         StringReader sr = new StringReader(s.substring(1, s.length() - 1));
         StringBuilder sb = new StringBuilder();
 
@@ -29,7 +29,8 @@ public final class JSONString extends JSON {
 
             switch (c) {
                 case '\\':
-                    if ((ci = sr.read()) == -1) throw new StringParseException("Failed at " + c);
+                    if ((ci = sr.read()) == -1)
+                        throw new JsonParseException("parse failed ");
                     c = (char) ci;
                     switch (c) {
                         case '\\':
@@ -57,13 +58,12 @@ public final class JSONString extends JSON {
                             sb.append('\t');
                             continue;
                         case 'u':
-                            StringBuilder sbb = new StringBuilder();
-                            sbb.append((char) sr.read());
-                            sbb.append((char) sr.read());
-                            sbb.append((char) sr.read());
-                            sbb.append((char) sr.read());
+                            String sbb = String.valueOf((char) sr.read()) +
+                                    (char) sr.read() +
+                                    (char) sr.read() +
+                                    (char) sr.read();
                             int ii =
-                                Integer.parseInt(sbb.toString(), 16);
+                                    Integer.parseInt(sbb, 16);
 
                             sb.append((char) ii);
                             continue;
@@ -73,11 +73,11 @@ public final class JSONString extends JSON {
             }
         }
 
-        return new JSONString(sb.toString());
+        return new JsonString(sb.toString());
     }
 
-    public static JSONString valueOf(String s) {
-        return new JSONString(s);
+    public static JsonString valueOf(String s) {
+        return new JsonString(s);
     }
 
     public String getValue() {
@@ -91,7 +91,7 @@ public final class JSONString extends JSON {
 
     @Override
     public boolean equals(Object obj) {
-        return obj.getClass() == getClass() && ((JSONString) obj).value.equals(value);
+        return obj.getClass() == getClass() && ((JsonString) obj).value.equals(value);
     }
 
     @Override

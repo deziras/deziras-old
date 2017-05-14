@@ -6,7 +6,7 @@ package tech.glacial.json;
  * @author Glavo
  * @version 1.0.0
  */
-public final class JSONNull extends JSON {
+public final class JSONNull implements JsonValue {
     public static final JSONNull Null = new JSONNull();
 
     private JSONNull() {
@@ -22,8 +22,4 @@ public final class JSONNull extends JSON {
         return "Null";
     }
 
-    @Override
-    public String toString(int n) {
-        return getSpaces(n) + "Null";
-    }
 }
