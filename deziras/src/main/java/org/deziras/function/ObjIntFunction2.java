@@ -6,6 +6,7 @@ package org.deziras.function;
  * {@link Function2}.
  *
  * @param <R> return type of the function
+ *
  * @author Glavo
  * @since 0.1.0
  */
@@ -17,6 +18,7 @@ public interface ObjIntFunction2<T, R> {
      *
      * @param t function argument 1
      * @param i function argument 2
+     *
      * @return the function result
      */
     R invoke(T t, int i);

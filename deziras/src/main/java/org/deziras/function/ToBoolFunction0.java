@@ -3,7 +3,7 @@ package org.deziras.function;
 /**
  * Represents a supplier of {@code boolean}-valued results.  This is the
  * {@code boolean}-producing primitive specialization of {@link Function0}.
- *
+ * <p>
  * <p>This is a <a href="package-summary.html">functional interface</a>
  * whose functional method is {@link #invoke()}.
  *
@@ -19,4 +19,8 @@ public interface ToBoolFunction0 {
      * @return a result
      */
     boolean invoke();
+
+    default Function0<Boolean> boxed() {
+        return this::invoke;
+    }
 }

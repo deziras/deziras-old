@@ -1,5 +1,6 @@
 package org.deziras;
 
+import org.deziras.annotations.Covariant;
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
 

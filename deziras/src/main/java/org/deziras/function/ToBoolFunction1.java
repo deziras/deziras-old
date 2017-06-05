@@ -15,7 +15,12 @@ public interface ToBoolFunction1<T> {
      * Applies this function to the given argument.
      *
      * @param t the function argument
+     *
      * @return the function result
      */
     boolean invoke(T t);
+
+    default Function1<T, Boolean> boxed() {
+        return this::invoke;
+    }
 }

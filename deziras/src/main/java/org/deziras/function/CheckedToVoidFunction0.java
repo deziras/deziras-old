@@ -9,18 +9,14 @@ import org.deziras.Unit;
  * @since 0.1.0
  */
 @FunctionalInterface
-public interface ToVoidFunction0
-        extends CheckedToVoidFunction0 {
+public interface CheckedToVoidFunction0 {
 
     /**
      * Performs this function.
      */
-    void invoke();
+    void invoke() throws Throwable;
 
     default Function0<Unit> boxed() {
-        return () -> {
-            invoke();
-            return Unit.instance();
-        };
+        return Unit::instance;
     }
 }

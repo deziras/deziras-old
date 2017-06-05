@@ -1,5 +1,7 @@
 package org.deziras.function;
 
+import org.deziras.Unit;
+
 /**
  * Represents a function with 5 arguments.
  *
@@ -8,25 +10,28 @@ package org.deziras.function;
  * @param <T3> argument 3 of the function
  * @param <T4> argument 4 of the function
  * @param <T5> argument 5 of the function
- * @param <R>  return type of the function
  *
  * @author Glavo
  * @since 0.1.0
  */
 @FunctionalInterface
-public interface Function5<T1, T2, T3, T4, T5, R>
-        extends CheckedFunction5<T1, T2, T3, T4, T5, R> {
+public interface CheckedToVoidFunction5<T1, T2, T3, T4, T5> {
 
     /**
-     * Applies this function to the given arguments.
+     * Performs this function to the given arguments.
      *
      * @param t1 function argument 1
      * @param t2 function argument 2
      * @param t3 function argument 3
      * @param t4 function argument 4
      * @param t5 function argument 5
-     *
-     * @return the function result
      */
-    R invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5);
+    void invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5) throws Throwable;
+
+    default CheckedFunction5<T1, T2, T3, T4, T5, Unit> boxed() {
+        return (t1, t2, t3, t4, t5) -> {
+            invoke(t1, t2, t3, t4, t5);
+            return Unit.instance();
+        };
+    }
 }

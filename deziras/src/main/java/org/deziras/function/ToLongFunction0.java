@@ -16,4 +16,8 @@ public interface ToLongFunction0 {
      * @return a result
      */
     long invoke();
+
+    default Function0<Long> boxed() {
+        return this::invoke;
+    }
 }

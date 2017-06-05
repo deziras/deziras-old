@@ -16,6 +16,7 @@ public interface IntIntToIntFunction2 {
      *
      * @param i1 function argument 1
      * @param i2 function argument 2
+     *
      * @return the function result
      */
     int invoke(int i1, int i2);

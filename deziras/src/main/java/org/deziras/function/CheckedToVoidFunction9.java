@@ -1,5 +1,7 @@
 package org.deziras.function;
 
+import org.deziras.Unit;
+
 /**
  * Represents a function with 8 arguments.
  *
@@ -11,17 +13,16 @@ package org.deziras.function;
  * @param <T6> argument 6 of the function
  * @param <T7> argument 7 of the function
  * @param <T8> argument 8 of the function
- * @param <R>  return type of the function
+ * @param <T9> argument 9 of the function
  *
  * @author Glavo
  * @since 0.1.0
  */
 @FunctionalInterface
-public interface Function8<T1, T2, T3, T4, T5, T6, T7, T8, R>
-        extends CheckedFunction8<T1, T2, T3, T4, T5, T6, T7, T8, R> {
+public interface CheckedToVoidFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9> {
 
     /**
-     * Applies this function to the given arguments.
+     * Performs this function to the given arguments.
      *
      * @param t1 function argument 1
      * @param t2 function argument 2
@@ -31,8 +32,14 @@ public interface Function8<T1, T2, T3, T4, T5, T6, T7, T8, R>
      * @param t6 function argument 6
      * @param t7 function argument 7
      * @param t8 function argument 8
-     *
-     * @return the function result
+     * @param t9 function argument 9
      */
-    R invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8);
+    void invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9) throws Throwable;
+
+    default CheckedFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9, Unit> boxed() {
+        return (t1, t2, t3, t4, t5, t6, t7, t8, t9) -> {
+            invoke(t1, t2, t3, t4, t5, t6, t7, t8, t9);
+            return Unit.instance();
+        };
+    }
 }

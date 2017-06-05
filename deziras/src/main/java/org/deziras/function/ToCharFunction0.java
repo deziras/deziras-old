@@ -16,4 +16,8 @@ public interface ToCharFunction0 {
      * @return a result
      */
     char invoke();
+
+    default Function0<Character> boxed() {
+        return this::invoke;
+    }
 }

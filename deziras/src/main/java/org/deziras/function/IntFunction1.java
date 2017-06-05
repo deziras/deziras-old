@@ -6,6 +6,7 @@ package org.deziras.function;
  * {@link Function1}.
  *
  * @param <R> return type of the function
+ *
  * @author Glavo
  * @since 0.1.0
  */
@@ -16,6 +17,7 @@ public interface IntFunction1<R> {
      * Applies this function to the given argument.
      *
      * @param t the function argument
+     *
      * @return the function result
      */
     R invoke(int t);

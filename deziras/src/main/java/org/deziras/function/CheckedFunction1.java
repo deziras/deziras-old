@@ -10,8 +10,7 @@ package org.deziras.function;
  * @since 0.1.0
  */
 @FunctionalInterface
-public interface Function1<T, R>
-        extends CheckedFunction1<T, R> {
+public interface CheckedFunction1<T, R> {
 
     /**
      * Applies this function to the given argument.
@@ -20,5 +19,5 @@ public interface Function1<T, R>
      *
      * @return the function result
      */
-    R invoke(T t);
+    R invoke(T t) throws Throwable;
 }

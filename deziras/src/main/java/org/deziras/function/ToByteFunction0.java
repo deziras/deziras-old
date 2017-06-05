@@ -16,4 +16,8 @@ public interface ToByteFunction0 {
      * @return a result
      */
     byte invoke();
+
+    default Function0<Byte> boxed() {
+        return this::invoke;
+    }
 }

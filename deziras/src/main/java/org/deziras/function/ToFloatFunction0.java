@@ -16,4 +16,8 @@ public interface ToFloatFunction0 {
      * @return a result
      */
     float invoke();
+
+    default Function0<Float> boxed() {
+        return this::invoke;
+    }
 }

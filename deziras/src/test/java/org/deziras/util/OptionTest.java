@@ -24,47 +24,8 @@ public class OptionTest {
     }
 
     @Test
-    public void foreach() throws Exception {
-    }
+    public void testGet() {
 
-    @Test
-    public void map() throws Exception {
-    }
-
-    @Test
-    public void filter() throws Exception {
-    }
-
-    @Test
-    public void filterNot() throws Exception {
-    }
-
-    @Test
-    public void iterator() throws Exception {
-    }
-
-    @Test
-    public void isEmpty() throws Exception {
-    }
-
-    @Test
-    public void nonEmpty() throws Exception {
-    }
-
-    @Test
-    public void get() throws Exception {
-    }
-
-    @Test
-    public void getOrDefault() throws Exception {
-    }
-
-    @Test
-    public void getOrElse() throws Exception {
-    }
-
-    @Test
-    public void orElse() throws Exception {
     }
 
 }

@@ -16,4 +16,8 @@ public interface ToIntFunction0 {
      * @return a result
      */
     int invoke();
+
+    default Function0<Integer> boxed() {
+        return this::invoke;
+    }
 }

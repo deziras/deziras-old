@@ -16,4 +16,8 @@ public interface ToDoubleFunction0 {
      * @return a result
      */
     double invoke();
+
+    default Function0<Double> boxed() {
+        return this::invoke;
+    }
 }

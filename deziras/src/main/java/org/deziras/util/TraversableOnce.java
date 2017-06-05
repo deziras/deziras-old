@@ -1,8 +1,12 @@
 package org.deziras.util;
 
 import org.deziras.function.Function1;
+import org.deziras.function.Function2;
 import org.deziras.util.iterator.CanBuildFrom;
 import org.deziras.function.ToVoidFunction1;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -23,14 +27,29 @@ public interface TraversableOnce<A>
         }
     }
 
-    default <From, B, To> To map(Function1<? super A, ? extends B> f
-            , CanBuildFrom<From, B, To> collector) {
-        From builder = collector.getBuilder();
+
+    default <B> B foldl(B z, Function2<B, A, B> op) {
+        B t = z;
 
         for (A a : this) {
-            collector.append(builder, f.invoke(a));
+            t = op.invoke(t, a);
         }
 
-        return collector.finish(builder);
+        return t;
+    }
+
+
+    default <B> B foldr(Function2<A, B, B> op, B z) {
+        LinkedList<A> list = new LinkedList<>();
+        for (A a : this) {
+            list.push(a);
+        }
+
+        B t = z;
+        for (A a : list) {
+            t = op.invoke(a, t);
+        }
+
+        return t;
     }
 }

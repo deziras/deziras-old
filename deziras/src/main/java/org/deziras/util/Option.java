@@ -21,22 +21,33 @@ public class Option<A> implements TraversableOnce<A>, Serializable, Equals, Func
 
     private static final long serialVersionUID = -2936428877283252528L;
 
+    @SuppressWarnings("unchecked")
+    public <A> Option<A> narrow(Option<? extends A> opt) {
+        return (Option<A>) opt;
+    }
+
+    public static final Option<Null> None = new Option<>();
+
+    public static final Option<Null> Null = new Option<>(null);
+
+    @SuppressWarnings("unchecked")
+    public static <A> Option<A> none() {
+        return (Option<A>) None;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <A> Option<A> some(A value) {
+        return value == null ? (Option<A>) Null : new Option<>(value);
+    }
+
+    public static <A> Option<A> of(A a) {
+        return a == null ? Option.none() : new Option<>(a);
+    }
 
     public final class OptionIterator extends UniformIterator<A> {
         public A get() {
             return Option.this.get();
         }
-    }
-
-    public static final Option<Null> None = new Option<Null>();
-
-    @SuppressWarnings("unchecked")
-    public static <A> Option<A> empty() {
-        return (Option<A>) None;
-    }
-
-    public static <A> Option<A> of(A a) {
-        return a == null ? Option.<A>empty() : new Option<A>(a);
     }
 
     private final boolean empty;
@@ -49,7 +60,6 @@ public class Option<A> implements TraversableOnce<A>, Serializable, Equals, Func
     }
 
     private Option(A value) {
-        Objects.requireNonNull(value);
         empty = false;
         this.value = value;
     }
@@ -60,19 +70,19 @@ public class Option<A> implements TraversableOnce<A>, Serializable, Equals, Func
     }
 
     public <B> Option<B> map(Function1<? super A, ? extends B> mapper) {
-        return empty ? Option.<B>empty() : Option.of(mapper.invoke(value));
+        return empty ? none() : Option.of(mapper.invoke(value));
     }
 
     public Option<A> filter(ToBoolFunction1<A> f) {
-        return Objects.requireNonNull(f).invoke(value) ? this : Option.<A>empty();
+        return Objects.requireNonNull(f).invoke(value) ? this : none();
     }
 
     public Option<A> filterNot(ToBoolFunction1<A> f) {
-        return Objects.requireNonNull(f).invoke(value) ? Option.<A>empty() : this;
+        return Objects.requireNonNull(f).invoke(value) ? none() : this;
     }
 
     public Iterator<A> iterator() {
-        return empty ? Iterators.<A>empty() : new OptionIterator();
+        return empty ? Iterators.empty() : new OptionIterator();
     }
 
     public boolean isEmpty() {
@@ -91,17 +101,29 @@ public class Option<A> implements TraversableOnce<A>, Serializable, Equals, Func
         }
     }
 
-    public A getOrDefault(A defaultValue) {
-        return empty ? defaultValue : value;
-    }
-
-    public A getOrElse(Function0<? extends A> f) {
+    @SuppressWarnings("unchecked")
+    public A orElse(Function0<? extends A> f) {
         return empty ? f.invoke() : value;
     }
 
-    @SuppressWarnings("unchecked")
-    public Option<A> orElse(Function0<? extends Option<? extends A>> f) {
-        return empty ? (Option<A>) f.invoke() : this;
+    public A orDefault(A a) {
+        return empty ? a : value;
+    }
+
+    public A orNull() {
+        return empty ? null : value;
+    }
+
+    public A orElseGet(Option<? extends A> other) {
+        return empty ? other.get() : value;
+    }
+
+    public <T extends Throwable> A orThrow(T t) throws T {
+        throw t;
+    }
+
+    public <T extends Throwable> A orThrow(Function0<? extends T> t) throws T {
+        throw t.invoke();
     }
 
     public A invoke() {
@@ -123,6 +145,6 @@ public class Option<A> implements TraversableOnce<A>, Serializable, Equals, Func
     }
 
     private Object readResolve() throws ObjectStreamException {
-        return empty ? Option.empty() : this;
+        return empty ? none() : (value == null ? Null : this);
     }
 }

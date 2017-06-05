@@ -10,11 +10,13 @@ package org.deziras.function;
  * @param <T5> argument 5 of the function
  * @param <T6> argument 6 of the function
  * @param <R>  return type of the function
+ *
  * @author Glavo
  * @since 0.1.0
  */
 @FunctionalInterface
-public interface Function6<T1, T2, T3, T4, T5, T6, R> {
+public interface Function6<T1, T2, T3, T4, T5, T6, R>
+        extends CheckedFunction6<T1, T2, T3, T4, T5, T6, R>{
 
     /**
      * Applies this function to the given arguments.
@@ -25,6 +27,7 @@ public interface Function6<T1, T2, T3, T4, T5, T6, R> {
      * @param t4 function argument 4
      * @param t5 function argument 5
      * @param t6 function argument 6
+     *
      * @return the function result
      */
     R invoke(T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6);
