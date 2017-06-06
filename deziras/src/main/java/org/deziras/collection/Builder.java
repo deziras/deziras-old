@@ -47,8 +47,8 @@ public interface Builder<Elem, To> {
      *
      * @return a new builder which is the same as the current builder except
      * that a transformation function is applied to this builder's result.
-     *
-     * @note The original builder should no longer be used after `mapResult` is called.
+     *@
+     * @apiNote The original builder should no longer be used after `mapResult` is called.
      */
     default <NewTo> Builder<Elem, NewTo> mapResult(Function1<? super To, ? extends NewTo> f) {
         return new Builder<Elem, NewTo>() {

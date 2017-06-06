@@ -1,6 +1,7 @@
 package org.deziras;
 
 import org.deziras.util.Objects;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
@@ -70,6 +71,7 @@ public interface Product
      *
      * @return in the default implementation, an {@link ProductIterator}
      */
+    @NotNull
     default ProductIterator iterator() {
         return new ProductIterator(this);
     }

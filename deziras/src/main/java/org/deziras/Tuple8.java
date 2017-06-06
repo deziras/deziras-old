@@ -127,7 +127,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
     public <T> Tuple8<T, T2, T3, T4, T5, T6, T7, T8> update1(T value) {
-        return new Tuple8<T, T2, T3, T4, T5, T6, T7, T8>(value, $2, $3, $4, $5, $6, $7, $8);
+        return new Tuple8<>(value, $2, $3, $4, $5, $6, $7, $8);
     }
 
     /**
@@ -147,7 +147,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 2 of this Tuple.
      */
     public <T> Tuple8<T1, T, T3, T4, T5, T6, T7, T8> update2(T value) {
-        return new Tuple8<T1, T, T3, T4, T5, T6, T7, T8>($1, value, $3, $4, $5, $6, $7, $8);
+        return new Tuple8<>($1, value, $3, $4, $5, $6, $7, $8);
     }
 
     /**
@@ -167,7 +167,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 3 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T, T4, T5, T6, T7, T8> update3(T value) {
-        return new Tuple8<T1, T2, T, T4, T5, T6, T7, T8>($1, $2, value, $4, $5, $6, $7, $8);
+        return new Tuple8<>($1, $2, value, $4, $5, $6, $7, $8);
     }
 
     /**
@@ -187,7 +187,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 4 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T3, T, T5, T6, T7, T8> update4(T value) {
-        return new Tuple8<T1, T2, T3, T, T5, T6, T7, T8>($1, $2, $3, value, $5, $6, $7, $8);
+        return new Tuple8<>($1, $2, $3, value, $5, $6, $7, $8);
     }
 
     /**
@@ -207,7 +207,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 5 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T3, T4, T, T6, T7, T8> update5(T value) {
-        return new Tuple8<T1, T2, T3, T4, T, T6, T7, T8>($1, $2, $3, $4, value, $6, $7, $8);
+        return new Tuple8<>($1, $2, $3, $4, value, $6, $7, $8);
     }
 
     /**
@@ -227,7 +227,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 6 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T3, T4, T5, T, T7, T8> update6(T value) {
-        return new Tuple8<T1, T2, T3, T4, T5, T, T7, T8>($1, $2, $3, $4, $5, value, $7, $8);
+        return new Tuple8<>($1, $2, $3, $4, $5, value, $7, $8);
     }
 
     /**
@@ -247,7 +247,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 7 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T3, T4, T5, T6, T, T8> update7(T value) {
-        return new Tuple8<T1, T2, T3, T4, T5, T6, T, T8>($1, $2, $3, $4, $5, $6, value, $8);
+        return new Tuple8<>($1, $2, $3, $4, $5, $6, value, $8);
     }
 
     /**
@@ -267,7 +267,7 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>
      * @return a copy of this Tuple with a new value for element 8 of this Tuple.
      */
     public <T> Tuple8<T1, T2, T3, T4, T5, T6, T7, T> update8(T value) {
-        return new Tuple8<T1, T2, T3, T4, T5, T6, T7, T>($1, $2, $3, $4, $5, $6, $7, value);
+        return new Tuple8<>($1, $2, $3, $4, $5, $6, $7, value);
     }
 
     @Override

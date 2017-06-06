@@ -1,8 +1,6 @@
 package org.deziras.helper;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import java.util.Random;
 
 /**
  * Created by glavo on 17-5-6.
@@ -11,6 +9,7 @@ import static org.junit.Assert.*;
  * @since 1.0.0
  */
 public class TestData {
+    public static final Random rand = new Random(System.currentTimeMillis());
     public static final String s1 = "String 1";
     public static final String s2 = "String 2";
     public static final String s3 = "String 3";
