@@ -1,5 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'distribution'
+apply plugin: 'java'
 
 allprojects {
     group = 'org.deziras'
@@ -9,7 +10,6 @@ allprojects {
 subprojects {
     apply plugin: 'java'
 }
-
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.5'
