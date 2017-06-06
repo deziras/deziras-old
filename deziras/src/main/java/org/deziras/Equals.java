@@ -12,9 +12,12 @@ public interface Equals {
      * that is open to be overridden in a subclass.
      *
      * @param that the value being probed for possible equality
+     *
      * @return true if this instance can possibly equal `that`, otherwise false
      */
-    boolean canEqual(Object that);
+    default boolean canEqual(Object that) {
+        return that != null && that.getClass() == getClass();
+    }
 
     boolean equals(Object o);
 }

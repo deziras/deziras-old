@@ -14,17 +14,10 @@ import java.io.Serializable;
 import java.util.Optional;
 
 /**
- * Replacement for {@link java.util.Optional}.
- * <p>
- * Option is a <a href="http://stackoverflow.com/questions/13454347/monads-with-java-8">monadic</a> container type which
- * represents an optional value. Instances of Option are either an instance of {@link Some} or the
- * singleton {@link None}.
- * <p>
- * Most of the API is taken from {@link java.util.Optional}. A similar type can be found in <a
- * href="http://hackage.haskell.org/package/base-4.6.0.1/docs/Data-Maybe.html">Haskell</a> and <a
- * href="http://www.scala-lang.org/api/current/#scala.Option">Scala</a>.
+ * Represents optional values.
  *
  * @param <A> The type of the optional value.
+ *
  * @author Glavo
  * @since 0.1.0
  */
@@ -33,9 +26,18 @@ public final class Option<@Covariant A>
 
     private static final long serialVersionUID = -2936428877283252528L;
 
+    /**
+     * Narrows a widened {@code Option<? extends T>} to {@code Option<T>}
+     * by performing a type-safe cast.
+     *
+     * @param option A {@code Option}.
+     * @param <A>    Component type of the {@code Option}.
+     *
+     * @return the given {@code option} instance as narrowed type {@code Option<T>}.
+     */
     @SuppressWarnings("unchecked")
-    public static <A> Option<A> narrow(Option<? extends A> opt) {
-        return (Option<A>) opt;
+    public static <A> Option<A> narrow(Option<? extends A> option) {
+        return (Option<A>) option;
     }
 
     /**
@@ -49,7 +51,7 @@ public final class Option<@Covariant A>
      * Returns an empty {@code Option} instance.  No value is present for this
      * Option.
      *
-     * @param <T> Type of the non-existent value
+     * @param <A> Type of the non-existent value
      *
      * @return an empty {@code Option}
      *
