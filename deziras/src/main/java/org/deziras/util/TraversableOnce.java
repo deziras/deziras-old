@@ -1,12 +1,9 @@
 package org.deziras.util;
 
-import org.deziras.function.Function1;
 import org.deziras.function.Function2;
-import org.deziras.util.iterator.CanBuildFrom;
 import org.deziras.function.ToVoidFunction1;
 
 import java.util.LinkedList;
-import java.util.List;
 
 
 /**

@@ -61,7 +61,7 @@ public final class Tuple1<@Covariant T1>
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
     public <T> Tuple1<T> update1(T value) {
-        return new Tuple1<T>(value);
+        return new Tuple1<>(value);
     }
 
     @Override
