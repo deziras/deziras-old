@@ -16,6 +16,6 @@ public class Null {
         return null;
     }
 
-    private Null() {
+    Null() {
     }
 }
