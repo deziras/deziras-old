@@ -1,10 +1,9 @@
 package org.deziras.io;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.Closeable;
-import java.io.Flushable;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Glavo on 下午6:35.
@@ -53,10 +52,10 @@ public interface ObjectOutput extends Closeable, Flushable, java.io.ObjectOutput
 
     void writeDouble(double val) throws IOException;
 
-    void writeBytes(@NotNull String str) throws IOException;
+    void writeBytes(String str) throws IOException;
 
-    void writeChars(@NotNull String str) throws IOException;
+    void writeChars(String str) throws IOException;
 
-    void writeUTF(@NotNull String str) throws IOException;
+    void writeUTF(String str) throws IOException;
 
 }

@@ -9,7 +9,7 @@ package org.deziras.util;
 public final class Ref<A> {
     public static final class OfInt {
         public static <B> Ref<B> of(B b) {
-            return new Ref<>(b);
+            return new Ref<B>(b);
         }
 
         public int value;
@@ -26,7 +26,7 @@ public final class Ref<A> {
     public A value;
 
     public static <B> Ref<B> of(B b) {
-        return new Ref<>(b);
+        return new Ref<B>(b);
     }
 
     public static Ref.OfInt ofInt(int i) {

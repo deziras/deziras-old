@@ -21,7 +21,7 @@ public final class Iterators extends ToolClass {
         Objects.requireNonNull(e);
 
         return (e instanceof Iterator<?>) ? (Iterator<T>) e
-                : new EnumerationIterator<>(e);
+                : new EnumerationIterator<T>(e);
     }
 
     @SuppressWarnings("unchecked")

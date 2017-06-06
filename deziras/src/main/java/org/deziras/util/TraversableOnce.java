@@ -1,10 +1,12 @@
 package org.deziras.util;
 
+import org.deziras.function.Function1;
 import org.deziras.function.Function2;
+import org.deziras.util.iterator.CanBuildFrom;
 import org.deziras.function.ToVoidFunction1;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -18,7 +20,7 @@ public interface TraversableOnce<A>
         extends java.lang.Iterable<A> {
 
 
-    @NotNull Iterator<A> iterator();
+    Iterator<A> iterator();
 
     default void foreach(ToVoidFunction1<? super A> f) {
         for (A a : this) {

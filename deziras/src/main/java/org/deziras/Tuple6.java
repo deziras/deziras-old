@@ -109,7 +109,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
     public <T> Tuple6<T, T2, T3, T4, T5, T6> update1(T value) {
-        return new Tuple6<>(value, $2, $3, $4, $5, $6);
+        return new Tuple6<T, T2, T3, T4, T5, T6>(value, $2, $3, $4, $5, $6);
     }
 
     /**
@@ -129,7 +129,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 2 of this Tuple.
      */
     public <T> Tuple6<T1, T, T3, T4, T5, T6> update2(T value) {
-        return new Tuple6<>($1, value, $3, $4, $5, $6);
+        return new Tuple6<T1, T, T3, T4, T5, T6>($1, value, $3, $4, $5, $6);
     }
 
     /**
@@ -149,7 +149,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 3 of this Tuple.
      */
     public <T> Tuple6<T1, T2, T, T4, T5, T6> update3(T value) {
-        return new Tuple6<>($1, $2, value, $4, $5, $6);
+        return new Tuple6<T1, T2, T, T4, T5, T6>($1, $2, value, $4, $5, $6);
     }
 
     /**
@@ -169,7 +169,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 4 of this Tuple.
      */
     public <T> Tuple6<T1, T2, T3, T, T5, T6> update4(T value) {
-        return new Tuple6<>($1, $2, $3, value, $5, $6);
+        return new Tuple6<T1, T2, T3, T, T5, T6>($1, $2, $3, value, $5, $6);
     }
 
     /**
@@ -189,7 +189,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 5 of this Tuple.
      */
     public <T> Tuple6<T1, T2, T3, T4, T, T6> update5(T value) {
-        return new Tuple6<>($1, $2, $3, $4, value, $6);
+        return new Tuple6<T1, T2, T3, T4, T, T6>($1, $2, $3, $4, value, $6);
     }
 
     /**
@@ -209,7 +209,7 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
      * @return a copy of this Tuple with a new value for element 6 of this Tuple.
      */
     public <T> Tuple6<T1, T2, T3, T4, T5, T> update6(T value) {
-        return new Tuple6<>($1, $2, $3, $4, $5, value);
+        return new Tuple6<T1, T2, T3, T4, T5, T>($1, $2, $3, $4, $5, value);
     }
 
     @Override

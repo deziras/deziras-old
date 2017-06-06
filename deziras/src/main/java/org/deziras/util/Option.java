@@ -8,9 +8,6 @@ import org.deziras.function.Function1;
 import org.deziras.function.ToBoolFunction1;
 import org.deziras.function.ToVoidFunction1;
 import org.deziras.util.iterator.UniformIterator;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -20,10 +17,10 @@ import java.util.Optional;
  * Represents optional values.
  *
  * @param <A> The type of the optional value.
+ *
  * @author Glavo
  * @since 0.1.0
  */
-@SuppressWarnings({"unchecked", "WeakerAccess"})
 public final class Option<@Covariant A>
         implements TraversableOnce<A>, Serializable, Equals, Function0<A> {
 
@@ -35,9 +32,10 @@ public final class Option<@Covariant A>
      *
      * @param option A {@code Option}.
      * @param <A>    Component type of the {@code Option}.
+     *
      * @return the given {@code option} instance as narrowed type {@code Option<T>}.
      */
-    @Contract(pure = true)
+    @SuppressWarnings("unchecked")
     public static <A> Option<A> narrow(Option<? extends A> option) {
         return (Option<A>) option;
     }
@@ -54,18 +52,20 @@ public final class Option<@Covariant A>
      * Option.
      *
      * @param <A> Type of the non-existent value
+     *
      * @return an empty {@code Option}
+     *
      * @note Though it may be tempting to do so, avoid testing if an object
      * is empty by comparing with {@code ==} against instances returned by
      * {@code Option.none()}. There is no guarantee that it is a singleton.
      * Instead, use {@link #isEmpty()}.
      */
-    @Contract(pure = true)
+    @SuppressWarnings("unchecked")
     public static <A> Option<A> none() {
         return (Option<A>) None;
     }
 
-    @Contract("!null -> !null")
+    @SuppressWarnings("unchecked")
     public static <A> Option<A> some(A value) {
         return value == null ? (Option<A>) Null : new Option<>(value);
     }
@@ -76,10 +76,10 @@ public final class Option<@Covariant A>
      *
      * @param <A>   the class of the value
      * @param value the possibly-null value to describe
+     *
      * @return an {@code Option} with a present value if the specified value
      * is non-null, otherwise an empty {@code Option}
      */
-    @Contract("!null -> !null")
     public static <A> Option<A> of(A value) {
         return value == null ? Option.none() : new Option<>(value);
     }
@@ -112,7 +112,6 @@ public final class Option<@Covariant A>
     /**
      * Returns true if the option is {@link #None}, false otherwise.
      */
-    @Contract(pure = true)
     public boolean isEmpty() {
         return empty;
     }
@@ -120,7 +119,6 @@ public final class Option<@Covariant A>
     /**
      * Returns true if the option isn't {@link #None}, false otherwise.
      */
-    @Contract(pure = true)
     public boolean nonEmpty() {
         return !empty;
     }
@@ -182,7 +180,6 @@ public final class Option<@Covariant A>
      *
      * @param a the default value.
      */
-    @Contract(pure = true)
     public A orDefault(A a) {
         return empty ? a : value;
     }
@@ -191,8 +188,6 @@ public final class Option<@Covariant A>
      * Returns the option's value if it is nonempty, or {@code null}
      * if it is empty.
      */
-    @Nullable
-    @Contract(pure = true)
     public A orNull() {
         return empty ? null : value;
     }
@@ -205,7 +200,9 @@ public final class Option<@Covariant A>
      * @param <T>               Type of the exception to be thrown
      * @param exceptionSupplier The supplier which will return the exception to
      *                          be thrown
+     *
      * @return the present value
+     *
      * @throws T                    if there is no value present
      * @throws NullPointerException if no value is present and
      *                              {@code exceptionSupplier} is null
@@ -213,7 +210,6 @@ public final class Option<@Covariant A>
      * argument list can be used as the supplier. For example,
      * {@code IllegalStateException::new}
      */
-    @Contract("_ -> fail")
     public <T extends Throwable> A orThrow(Function0<? extends T> exceptionSupplier) throws T {
         throw exceptionSupplier.invoke();
     }
@@ -281,7 +277,6 @@ public final class Option<@Covariant A>
         return Optional.ofNullable(value);
     }
 
-    @NotNull
     @Override
     public String toString() {
         if (empty) {
@@ -291,14 +286,15 @@ public final class Option<@Covariant A>
         }
     }
 
-    @Contract(pure = true)
     public boolean canEqual(Object that) {
         return that == this || that instanceof Option<?>;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (!canEqual(obj)) return false;
+        if (!canEqual(obj)) {
+            return false;
+        }
 
         Option<?> opt = (Option<?>) obj;
 
@@ -309,7 +305,6 @@ public final class Option<@Covariant A>
         }
     }
 
-    @Contract(pure = true)
     private Object readResolve() throws ObjectStreamException {
         return empty ? none() : (value == null ? Null : this);
     }

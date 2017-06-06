@@ -2,8 +2,6 @@ package org.deziras;
 
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
@@ -78,7 +76,6 @@ public final class Tuple4<T1, T2, T3, T4>
      *
      * @return element 1 of this Tuple.
      */
-    @Contract(pure = true)
     public T1 _1() {
         return $1;
     }
@@ -89,9 +86,8 @@ public final class Tuple4<T1, T2, T3, T4>
      * @param value the new value
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
-    @NotNull
     public <T> Tuple4<T, T2, T3, T4> update1(T value) {
-        return new Tuple4<>(value, $2, $3, $4);
+        return new Tuple4<T, T2, T3, T4>(value, $2, $3, $4);
     }
 
     /**
@@ -99,7 +95,6 @@ public final class Tuple4<T1, T2, T3, T4>
      *
      * @return element 2 of this Tuple.
      */
-    @Contract(pure = true)
     public T2 _2() {
         return $2;
     }
@@ -110,9 +105,8 @@ public final class Tuple4<T1, T2, T3, T4>
      * @param value the new value
      * @return a copy of this Tuple with a new value for element 2 of this Tuple.
      */
-    @NotNull
     public <T> Tuple4<T1, T, T3, T4> update2(T value) {
-        return new Tuple4<>($1, value, $3, $4);
+        return new Tuple4<T1, T, T3, T4>($1, value, $3, $4);
     }
 
     /**
@@ -120,7 +114,6 @@ public final class Tuple4<T1, T2, T3, T4>
      *
      * @return element 3 of this Tuple.
      */
-    @Contract(pure = true)
     public T3 _3() {
         return $3;
     }
@@ -131,9 +124,8 @@ public final class Tuple4<T1, T2, T3, T4>
      * @param value the new value
      * @return a copy of this Tuple with a new value for element 3 of this Tuple.
      */
-    @NotNull
     public <T> Tuple4<T1, T2, T, T4> update3(T value) {
-        return new Tuple4<>($1, $2, value, $4);
+        return new Tuple4<T1, T2, T, T4>($1, $2, value, $4);
     }
 
     /**
@@ -141,7 +133,6 @@ public final class Tuple4<T1, T2, T3, T4>
      *
      * @return element 4 of this Tuple.
      */
-    @Contract(pure = true)
     public T4 _4() {
         return $4;
     }
@@ -152,9 +143,8 @@ public final class Tuple4<T1, T2, T3, T4>
      * @param value the new value
      * @return a copy of this Tuple with a new value for element 4 of this Tuple.
      */
-    @NotNull
     public <T> Tuple4<T1, T2, T3, T> update4(T value) {
-        return new Tuple4<>($1, $2, $3, value);
+        return new Tuple4<T1, T2, T3, T>($1, $2, $3, value);
     }
 
     @Override
@@ -172,8 +162,6 @@ public final class Tuple4<T1, T2, T3, T4>
                 && Objects.equals($4, o.$4);
     }
 
-    @NotNull
-    @Contract(pure = true)
     @Override
     public String toString() {
         return "("

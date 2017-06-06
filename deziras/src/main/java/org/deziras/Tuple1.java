@@ -3,8 +3,6 @@ package org.deziras;
 import org.deziras.annotations.Covariant;
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
@@ -51,7 +49,6 @@ public final class Tuple1<@Covariant T1>
      *
      * @return element 1 of this Tuple.
      */
-    @Contract(pure = true)
     public T1 _1() {
         return $1;
     }
@@ -63,9 +60,8 @@ public final class Tuple1<@Covariant T1>
      *
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
-    @NotNull
     public <T> Tuple1<T> update1(T value) {
-        return new Tuple1<>(value);
+        return new Tuple1<T>(value);
     }
 
     @Override
@@ -80,8 +76,6 @@ public final class Tuple1<@Covariant T1>
         return Objects.equals(o.$1, $1);
     }
 
-    @NotNull
-    @Contract(pure = true)
     @Override
     public String toString() {
         return "("

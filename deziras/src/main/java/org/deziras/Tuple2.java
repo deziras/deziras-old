@@ -2,8 +2,6 @@ package org.deziras;
 
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
@@ -58,7 +56,6 @@ public final class Tuple2<T1, T2>
      *
      * @return element 1 of this Tuple.
      */
-    @Contract(pure = true)
     public T1 _1() {
         return $1;
     }
@@ -70,9 +67,8 @@ public final class Tuple2<T1, T2>
      *
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
-    @NotNull
     public <T> Tuple2<T, T2> update1(T value) {
-        return new Tuple2<>(value, $2);
+        return new Tuple2<T, T2>(value, $2);
     }
 
     /**
@@ -80,7 +76,6 @@ public final class Tuple2<T1, T2>
      *
      * @return element 2 of this Tuple.
      */
-    @Contract(pure = true)
     public T2 _2() {
         return $2;
     }
@@ -92,22 +87,18 @@ public final class Tuple2<T1, T2>
      *
      * @return a copy of this Tuple with a new value for element 2 of this Tuple.
      */
-    @NotNull
     public <T> Tuple2<T1, T> update2(T value) {
-        return new Tuple2<>($1, value);
+        return new Tuple2<T1, T>($1, value);
     }
 
-    @Contract(pure = true)
     public T1 getKey() {
         return _1();
     }
 
-    @Contract(pure = true)
     public T2 getValue() {
         return _2();
     }
 
-    @Contract("_ -> fail")
     public T2 setValue(T2 value) {
         throw new UnsupportedOperationException("Tuple#setValue");
     }
@@ -125,8 +116,6 @@ public final class Tuple2<T1, T2>
                 && Objects.equals($2, o.$2);
     }
 
-    @NotNull
-    @Contract(pure = true)
     @Override
     public String toString() {
         return "("

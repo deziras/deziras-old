@@ -2,8 +2,6 @@ package org.deziras;
 
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
@@ -69,7 +67,6 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return element 1 of this Tuple.
      */
-    @Contract(pure = true)
     public T1 _1() {
         return $1;
     }
@@ -81,9 +78,8 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return a copy of this Tuple with a new value for element 1 of this Tuple.
      */
-    @NotNull
     public <T> Tuple3<T, T2, T3> update1(T value) {
-        return new Tuple3<>(value, $2, $3);
+        return new Tuple3<T, T2, T3>(value, $2, $3);
     }
 
     /**
@@ -91,7 +87,6 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return element 2 of this Tuple.
      */
-    @Contract(pure = true)
     public T2 _2() {
         return $2;
     }
@@ -103,9 +98,8 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return a copy of this Tuple with a new value for element 2 of this Tuple.
      */
-    @NotNull
     public <T> Tuple3<T1, T, T3> update2(T value) {
-        return new Tuple3<>($1, value, $3);
+        return new Tuple3<T1, T, T3>($1, value, $3);
     }
 
     /**
@@ -113,7 +107,6 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return element 3 of this Tuple.
      */
-    @Contract(pure = true)
     public T3 _3() {
         return $3;
     }
@@ -125,9 +118,8 @@ public final class Tuple3<T1, T2, T3>
      *
      * @return a copy of this Tuple with a new value for element 3 of this Tuple.
      */
-    @NotNull
     public <T> Tuple3<T1, T2, T> update3(T value) {
-        return new Tuple3<>($1, $2, value);
+        return new Tuple3<T1, T2, T>($1, $2, value);
     }
 
     @Override
@@ -144,8 +136,6 @@ public final class Tuple3<T1, T2, T3>
                 && Objects.equals($3, o.$3);
     }
 
-    @NotNull
-    @Contract(pure = true)
     @Override
     public String toString() {
         return "("
