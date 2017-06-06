@@ -21,7 +21,6 @@ distributions {
         contents {
             from 'deziras/build/libs'
         }
-
     }
 }
 
