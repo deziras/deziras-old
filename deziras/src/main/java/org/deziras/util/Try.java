@@ -35,4 +35,6 @@ public class Try<A> {
     public static <T1 extends Throwable, T2 extends Throwable, T3 extends Throwable>
     void throws_(Class<T1> c1, Class<T2> c2, Class<T3> c3) throws T1, T2, T3 {
     }
+
+
 }

@@ -13,9 +13,10 @@ import static org.junit.Assert.*;
 public class OptionTest {
     @Test
     public void testEmpty() throws Exception {
-        assertNotEquals(Option.empty(), Option.of(""));
-        assertNotEquals(Option.empty(), Option.of(0));
-        assertEquals(Option.empty(), Option.None);
+        assertNotEquals(Option.none(), Option.of(""));
+        assertNotEquals(Option.none(), Option.of(0));
+        assertEquals(Option.none(), Option.None);
+        assertNotEquals(Option.Null, Option.None);
     }
 
     @Test
@@ -25,7 +26,12 @@ public class OptionTest {
 
     @Test
     public void testGet() {
+        final Option<String> stringOption = Option.of("Option");
+    }
 
+    @Test
+    public void testToString() {
+        assertEquals(Option.of("Opt").toString(), "Some(Opt)");
     }
 
 }

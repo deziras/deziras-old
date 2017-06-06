@@ -1,5 +1,7 @@
 package org.deziras.function;
 
+import org.deziras.Tuple1;
+
 /**
  * Represents a function with 1 argument.
  *
@@ -21,4 +23,12 @@ public interface Function1<T, R>
      * @return the function result
      */
     R invoke(T t);
+
+    /**
+     * Creates a tupled version of this function: instead of 1 argument,
+     * it accepts a single {@link org.deziras.Tuple1} argument.
+     */
+    default Function1<Tuple1<? extends T>, R> tupled() {
+        return t -> invoke(t.$1);
+    }
 }
