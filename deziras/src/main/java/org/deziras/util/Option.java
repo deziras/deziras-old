@@ -55,7 +55,7 @@ public final class Option<@Covariant A>
      *
      * @param <A> Type of the non-existent value
      * @return an empty {@code Option}
-     * @apiNote Though it may be tempting to do so, avoid testing if an object
+     * @note Though it may be tempting to do so, avoid testing if an object
      * is empty by comparing with {@code ==} against instances returned by
      * {@code Option.none()}. There is no guarantee that it is a singleton.
      * Instead, use {@link #isEmpty()}.
@@ -129,7 +129,7 @@ public final class Option<@Covariant A>
      * Returns the option's value.
      *
      * @throws java.util.NoSuchElementException if the option is empty.
-     * @apiNote The option must be nonempty.
+     * @note The option must be nonempty.
      */
     public A get() {
         if (empty) {
@@ -143,7 +143,7 @@ public final class Option<@Covariant A>
      * Returns the option's value.
      *
      * @throws java.util.NoSuchElementException if the option is empty.
-     * @apiNote The option must be nonempty.
+     * @note The option must be nonempty.
      * @see #get()
      */
     public A getValue() {
@@ -158,7 +158,7 @@ public final class Option<@Covariant A>
      * Returns the option's value.
      *
      * @throws java.util.NoSuchElementException if the option is empty.
-     * @apiNote The option must be nonempty.
+     * @note The option must be nonempty.
      * @see #get()
      */
     public A invoke() {
@@ -209,7 +209,7 @@ public final class Option<@Covariant A>
      * @throws T                    if there is no value present
      * @throws NullPointerException if no value is present and
      *                              {@code exceptionSupplier} is null
-     * @apiNote A method reference to the exception constructor with an empty
+     * @note A method reference to the exception constructor with an empty
      * argument list can be used as the supplier. For example,
      * {@code IllegalStateException::new}
      */
