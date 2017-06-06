@@ -64,6 +64,7 @@ public final class Tuple1<@Covariant T1>
 		return new Tuple1<T>(value);
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;

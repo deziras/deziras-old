@@ -122,4 +122,5 @@ public final class Tuple2<T1, T2>
 				+ $1 + ", "
 				+ $2 + ")";
 	}
+
 }
