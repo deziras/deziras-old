@@ -3,31 +3,31 @@ package org.deziras;
 import org.deziras.util.IndexOutOfBoundsException;
 
 /**
- * {@code Unit} is
+ * There is only one value of type {@code Unit}, {@code ()}.
  *
  * @author Glavo
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class Unit extends Tuple {
 
-    private static final Unit Instance = new Unit();
+	private static final Unit Instance = new Unit();
 
-    public static Unit instance() {
-        return Instance;
-    }
+	public static Unit instance() {
+		return Instance;
+	}
 
-    private Unit() {
-    }
+	private Unit() {
+	}
 
-    public int productArity() {
-        return 0;
-    }
+	public int productArity() {
+		return 0;
+	}
 
-    public Nothing productElement(int n) {
-        throw new IndexOutOfBoundsException(Integer.toString(n));
-    }
+	public Nothing productElement(int n) {
+		throw new IndexOutOfBoundsException(Integer.toString(n));
+	}
 
-    public String toString() {
-        return "()";
-    }
+	public String toString() {
+		return "()";
+	}
 }

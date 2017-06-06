@@ -1,5 +1,6 @@
 package org.deziras;
 
+import org.deziras.annotations.Covariant;
 import org.deziras.function.Function1;
 
 /**
@@ -8,6 +9,6 @@ import org.deziras.function.Function1;
  * @author Glavo
  * @since 1.0.0
  */
-public interface Functor<A> {
+public interface Functor<@Covariant A> {
     <B> Functor<B> map(Function1<A, B> f);
 }

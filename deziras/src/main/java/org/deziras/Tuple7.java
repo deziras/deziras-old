@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @param <T7> type of element 7
  *
  * @author Glavo
- * @version 1.0.0
+ * @version 0.1.0
  */
 public final class Tuple7<T1, T2, T3, T4, T5, T6, T7>
 		extends Tuple implements Product7<T1, T2, T3, T4, T5, T6, T7>, Serializable {

@@ -7,10 +7,10 @@ package org.deziras;
  * @since 1.0.0
  */
 public class Null {
-    public static Null instance() {
-        return null;
-    }
+	public static Null instance() {
+		return null;
+	}
 
-    Null() {
-    }
+	Null() {
+	}
 }

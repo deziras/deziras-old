@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @param <T9> type of element 9
  *
  * @author Glavo
- * @since 1.0.0
+ * @since 0.1.0
  */
 public final class Tuple9<T1, T2, T3, T4, T5, T6, T7, T8, T9>
         extends Tuple implements Product9<T1, T2, T3, T4, T5, T6, T7, T8, T9>, Serializable {

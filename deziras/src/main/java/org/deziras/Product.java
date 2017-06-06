@@ -11,68 +11,79 @@ import java.util.Iterator;
  * @since 1.0.0
  */
 public interface Product
-        extends Iterable<Object>, Equals {
+		extends Iterable<Object>, Equals {
 
-    final class ProductIterator implements Iterator<Object> {
-        private final Product _p;
-        private int c = 0;
+	final class ProductIterator implements Iterator<Object> {
+		private final Product _p;
+		private int c = 0;
 
-        public ProductIterator(Product p) {
-            _p = p;
-        }
+		public ProductIterator(Product p) {
+			_p = p;
+		}
 
-        private int cmax() {
-            return _p.productArity();
-        }
+		private int cmax() {
+			return _p.productArity();
+		}
 
-        public boolean hasNext() {
-            return c < cmax();
-        }
+		public boolean hasNext() {
+			return c < cmax();
+		}
 
-        public Object next() {
-            return _p.productElement(c);
-        }
+		public Object next() {
+			return _p.productElement(c);
+		}
 
-        public void remove() {
+		public void remove() {
 
-        }
-    }
+		}
+	}
 
-    static int productArity(Product p) {
-        Objects.requireNonNull(p);
-        return p.productArity();
-    }
+	/**
+	 * The size of the product.
+	 *
+	 * @return the size of this product
+	 */
+	static int productArity(Product p) {
+		Objects.requireNonNull(p);
+		return p.productArity();
+	}
 
-    static Object productElement(Product p, int i) {
-        Objects.requireNonNull(p);
-        return p.productElement(i);
-    }
+	/**
+	 * The n<sup>th</sup> element of the product, 0-based.
+	 *
+	 * @param n the index of the element to return
+	 *
+	 * @return the element {@code n} elements after the first element
+	 */
+	static Object productElement(Product p, int n) {
+		Objects.requireNonNull(p);
+		return p.productElement(n);
+	}
 
-    /**
-     * The size of this product.
-     *
-     * @return the size of this product
-     */
-    int productArity();
+	/**
+	 * The size of this product.
+	 *
+	 * @return the size of this product
+	 */
+	int productArity();
 
-    /**
-     * The n<sup>th</sup> element of this product, 0-based.
-     *
-     * @param n the index of the element to return
-     *
-     * @return the element `n` elements after the first element
-     *
-     */
-    Object productElement(int n);
+	/**
+	 * The n<sup>th</sup> element of this product, 0-based.
+	 *
+	 * @param n the index of the element to return
+	 *
+	 * @return the element {@code n} elements after the first element
+	 */
+	Object productElement(int n);
 
-    /**
-     * An iterator over all the elements of this product.
-     *
-     * @return in the default implementation, an {@link ProductIterator}
-     */
-    default ProductIterator iterator() {
-        return new ProductIterator(this);
-    }
+	/**
+	 * An iterator over all the elements of this product.
+	 *
+	 * @return in the default implementation, an {@link ProductIterator}
+	 */
+	default ProductIterator iterator() {
+		return new ProductIterator(this);
+	}
 
 
 }

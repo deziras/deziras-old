@@ -7,7 +7,7 @@ package org.deziras;
  * @since 1.0.0
  */
 public abstract class ToolClass {
-    protected ToolClass() {
-        throw new AssertionError("No " + String.valueOf(getClass()) + " instances for you!");
-    }
+	protected ToolClass() {
+		throw new AssertionError("No " + String.valueOf(getClass()) + " instances for you!");
+	}
 }

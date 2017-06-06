@@ -7,6 +7,6 @@ package org.deziras;
  * @since 1.0.0
  */
 public final class Nothing extends Null {
-    private Nothing() {
-    }
+	private Nothing() {
+	}
 }
