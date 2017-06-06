@@ -1,13 +1,35 @@
+apply plugin: 'maven-publish'
+apply plugin: 'distribution'
+
 allprojects {
-	group = 'org.deziras'
-	version = '0.1.0-SNAPSHOT'
+    group = 'org.deziras'
+    version = '0.1.0-SNAPSHOT'
 }
 
 subprojects {
-	apply plugin: 'java'
+    apply plugin: 'java'
 }
 
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.5'
+}
+
+distributions {
+    main {
+        baseName = 'deziras'
+        contents {
+            from 'deziras/build/libs'
+        }
+
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifactId 'deziras'
+        }
+    }
 }
