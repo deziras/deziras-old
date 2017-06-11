@@ -11,6 +11,7 @@ import org.deziras.util.iterator.UniformIterator;
 
 import java.io.ObjectStreamException;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Optional;
 
 /**

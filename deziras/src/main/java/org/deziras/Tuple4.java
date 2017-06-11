@@ -89,7 +89,7 @@ public final class Tuple4<T1, T2, T3, T4>
 	 * @return a copy of this Tuple with a new value for element 1 of this Tuple.
 	 */
 	public <T> Tuple4<T, T2, T3, T4> update1(T value) {
-		return new Tuple4<T, T2, T3, T4>(value, $2, $3, $4);
+		return new Tuple4<>(value, $2, $3, $4);
 	}
 
 	/**
@@ -109,7 +109,7 @@ public final class Tuple4<T1, T2, T3, T4>
 	 * @return a copy of this Tuple with a new value for element 2 of this Tuple.
 	 */
 	public <T> Tuple4<T1, T, T3, T4> update2(T value) {
-		return new Tuple4<T1, T, T3, T4>($1, value, $3, $4);
+		return new Tuple4<>($1, value, $3, $4);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public final class Tuple4<T1, T2, T3, T4>
 	 * @return a copy of this Tuple with a new value for element 3 of this Tuple.
 	 */
 	public <T> Tuple4<T1, T2, T, T4> update3(T value) {
-		return new Tuple4<T1, T2, T, T4>($1, $2, value, $4);
+		return new Tuple4<>($1, $2, value, $4);
 	}
 
 	/**
@@ -149,7 +149,7 @@ public final class Tuple4<T1, T2, T3, T4>
 	 * @return a copy of this Tuple with a new value for element 4 of this Tuple.
 	 */
 	public <T> Tuple4<T1, T2, T3, T> update4(T value) {
-		return new Tuple4<T1, T2, T3, T>($1, $2, $3, value);
+		return new Tuple4<>($1, $2, $3, value);
 	}
 
 	@Override
@@ -176,4 +176,8 @@ public final class Tuple4<T1, T2, T3, T4>
 				+ $4 + ")";
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }

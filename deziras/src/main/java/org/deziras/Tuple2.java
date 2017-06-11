@@ -68,7 +68,7 @@ public final class Tuple2<T1, T2>
 	 * @return a copy of this Tuple with a new value for element 1 of this Tuple.
 	 */
 	public <T> Tuple2<T, T2> update1(T value) {
-		return new Tuple2<T, T2>(value, $2);
+		return new Tuple2<>(value, $2);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public final class Tuple2<T1, T2>
 	 * @return a copy of this Tuple with a new value for element 2 of this Tuple.
 	 */
 	public <T> Tuple2<T1, T> update2(T value) {
-		return new Tuple2<T1, T>($1, value);
+		return new Tuple2<>($1, value);
 	}
 
 	public T1 getKey() {
@@ -123,4 +123,8 @@ public final class Tuple2<T1, T2>
 				+ $2 + ")";
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }

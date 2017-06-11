@@ -79,7 +79,7 @@ public final class Tuple3<T1, T2, T3>
 	 * @return a copy of this Tuple with a new value for element 1 of this Tuple.
 	 */
 	public <T> Tuple3<T, T2, T3> update1(T value) {
-		return new Tuple3<T, T2, T3>(value, $2, $3);
+		return new Tuple3<>(value, $2, $3);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public final class Tuple3<T1, T2, T3>
 	 * @return a copy of this Tuple with a new value for element 2 of this Tuple.
 	 */
 	public <T> Tuple3<T1, T, T3> update2(T value) {
-		return new Tuple3<T1, T, T3>($1, value, $3);
+		return new Tuple3<>($1, value, $3);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public final class Tuple3<T1, T2, T3>
 	 * @return a copy of this Tuple with a new value for element 3 of this Tuple.
 	 */
 	public <T> Tuple3<T1, T2, T> update3(T value) {
-		return new Tuple3<T1, T2, T>($1, $2, value);
+		return new Tuple3<>($1, $2, value);
 	}
 
 	@Override
@@ -142,5 +142,10 @@ public final class Tuple3<T1, T2, T3>
 				+ $1 + ", "
 				+ $2 + ", "
 				+ $3 + ")";
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }

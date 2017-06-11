@@ -1,8 +1,8 @@
 package org.deziras.util.iterator;
 
+import org.deziras.util.AbstractIterator;
 import org.deziras.util.NoSuchElementException;
 import org.deziras.Nothing;
-import org.deziras.util.Iterator;
 
 /**
  * Created by glavo on 17-5-7.
@@ -10,7 +10,7 @@ import org.deziras.util.Iterator;
  * @author Glavo
  * @since 1.0.0
  */
-public class EmptyIterator implements Iterator<Nothing> {
+public class EmptyIterator implements AbstractIterator<Nothing> {
     public static final EmptyIterator Instance = new EmptyIterator();
 
     public static EmptyIterator instance() {

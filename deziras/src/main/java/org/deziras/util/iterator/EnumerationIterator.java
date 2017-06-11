@@ -1,7 +1,5 @@
 package org.deziras.util.iterator;
 
-import org.deziras.util.Iterator;
-
 import java.util.Enumeration;
 
 /**
@@ -10,7 +8,7 @@ import java.util.Enumeration;
  * @author Glavo
  * @since 1.0.0
  */
-public class EnumerationIterator<E> implements Iterator<E>, Enumeration<E> {
+public class EnumerationIterator<E> implements Enumeration<E>, java.util.Iterator<E> {
     private Enumeration<E> e;
 
     public EnumerationIterator(Enumeration<E> e) {

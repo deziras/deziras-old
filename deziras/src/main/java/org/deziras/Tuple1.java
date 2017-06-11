@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @since 0.1.0
  */
 public final class Tuple1<@Covariant T1>
-		extends Tuple implements Product1<T1>, Serializable {
+		extends Tuple implements Product1<T1>, Serializable, Cloneable {
 
 	private static final long serialVersionUID = 9153394155866466173L;
 
@@ -61,7 +61,7 @@ public final class Tuple1<@Covariant T1>
 	 * @return a copy of this Tuple with a new value for element 1 of this Tuple.
 	 */
 	public <T> Tuple1<T> update1(T value) {
-		return new Tuple1<T>(value);
+		return new Tuple1<>(value);
 	}
 
 
@@ -81,5 +81,10 @@ public final class Tuple1<@Covariant T1>
 	public String toString() {
 		return "("
 				+ $1 + ")";
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }

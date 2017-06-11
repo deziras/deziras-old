@@ -5,6 +5,7 @@ import org.deziras.util.iterator.EmptyIterator;
 import org.deziras.util.iterator.EnumerationIterator;
 
 import java.util.Enumeration;
+import java.util.Iterator;
 
 /**
  * Created by glavo on 17-5-7.

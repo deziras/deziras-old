@@ -239,4 +239,9 @@ public final class Tuple6<T1, T2, T3, T4, T5, T6>
 				+ $5 + ", "
 				+ $6 + ")";
 	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }
