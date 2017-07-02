@@ -1,6 +1,6 @@
 package org.deziras.util;
 
-import org.deziras.Equals;
+import org.deziras.type.Equals;
 import org.deziras.Null;
 import org.deziras.annotations.Covariant;
 import org.deziras.function.Function0;
@@ -221,7 +221,7 @@ public final class Option<@Covariant A>
      *
      * @param f the procedure to apply.
      */
-    public void foreach(ToVoidFunction1<? super A> f) {
+    public void forEach(ToVoidFunction1<? super A> f) {
         Objects.requireNonNull(f);
         if (!empty) f.invoke(value);
     }

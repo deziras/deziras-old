@@ -1,5 +1,7 @@
 package org.deziras;
 
+import org.deziras.type.Product8;
+import org.deziras.type.Tuple;
 import org.deziras.util.Objects;
 import org.deziras.util.IndexOutOfBoundsException;
 

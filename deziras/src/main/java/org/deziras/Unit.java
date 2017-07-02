@@ -1,5 +1,6 @@
 package org.deziras;
 
+import org.deziras.type.Tuple;
 import org.deziras.util.IndexOutOfBoundsException;
 
 /**

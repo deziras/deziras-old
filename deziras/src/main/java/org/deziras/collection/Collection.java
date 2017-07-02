@@ -1,6 +1,6 @@
 package org.deziras.collection;
 
-import org.deziras.Equals;
+import org.deziras.type.Equals;
 import org.deziras.function.Function0;
 import org.deziras.function.Function1;
 import org.deziras.function.ToBoolFunction1;

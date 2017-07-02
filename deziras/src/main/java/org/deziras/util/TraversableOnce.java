@@ -27,10 +27,8 @@ public interface TraversableOnce<A>
 	 * @param f the function that is applied for its side-effect to every element.
 	 *          The result of function {@code f}  is discarded.
 	 */
-	default void foreach(ToVoidFunction1<? super A> f) {
-		for (A a : this) {
-			f.invoke(a);
-		}
+	default void forEach(ToVoidFunction1<? super A> f) {
+		for (A a : this) f.invoke(a);
 	}
 
 
@@ -50,9 +48,7 @@ public interface TraversableOnce<A>
 	default <B> B foldl(B z, Function2<B, A, B> op) {
 		B t = z;
 
-		for (A a : this) {
-			t = op.invoke(t, a);
-		}
+		for (A a : this) t = op.invoke(t, a);
 
 		return t;
 	}
@@ -72,14 +68,10 @@ public interface TraversableOnce<A>
 	 */
 	default <B> B foldr(Function2<A, B, B> op, B z) {
 		LinkedList<A> list = new LinkedList<>();
-		for (A a : this) {
-			list.push(a);
-		}
+		for (A a : this) list.push(a);
 
 		B t = z;
-		for (A a : list) {
-			t = op.invoke(a, t);
-		}
+		for (A a : list) t = op.invoke(a, t);
 
 		return t;
 	}
