@@ -8,6 +8,6 @@ import org.deziras.function.Function1;
  *
  * @author ice1000
  */
-public interface Monad<@Covariant A> extends Functor {
-	<B> Monad<B> flatMap(Function1<A, Monad<B>> mapper);
+public interface Monad<@Covariant A> extends Functor<A> {
+    <B> Monad<B> flatMap(Function1<? super A, ? extends Monad<B>> mapper);
 }

@@ -11,5 +11,5 @@ import org.deziras.function.Function1;
  * @since 0.1.0
  */
 public interface Functor<@Contravariant A> {
-    <@Covariant B> Functor<B> map(Function1<A, B> mapper);
+    <@Covariant B> Functor<B> map(Function1<? super A, ? extends B> mapper);
 }

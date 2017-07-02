@@ -3,6 +3,8 @@ package org.deziras.util;
 import org.deziras.base.Equals;
 import org.deziras.Null;
 import org.deziras.annotations.Covariant;
+import org.deziras.base.Functor;
+import org.deziras.base.Monad;
 import org.deziras.function.Function0;
 import org.deziras.function.Function1;
 import org.deziras.function.ToBoolFunction1;
@@ -18,12 +20,11 @@ import java.util.Optional;
  * Represents optional values.
  *
  * @param <A> The base of the optional value.
- *
  * @author Glavo
  * @since 0.1.0
  */
 public final class Option<@Covariant A>
-        implements TraversableOnce<A>, Serializable, Equals, Function0<A> {
+        implements TraversableOnce<A>, Serializable, Equals, Function0<A>, Monad<A> {
 
     private static final long serialVersionUID = -2936428877283252528L;
 
@@ -33,7 +34,6 @@ public final class Option<@Covariant A>
      *
      * @param option A {@code Option}.
      * @param <A>    Component base of the {@code Option}.
-     *
      * @return the given {@code option} instance as narrowed base {@code Option<T>}.
      */
     @SuppressWarnings("unchecked")
@@ -53,9 +53,7 @@ public final class Option<@Covariant A>
      * Option.
      *
      * @param <A> Type of the non-existent value
-     *
      * @return an empty {@code Option}
-     *
      * @note Though it may be tempting to do so, avoid testing if an object
      * is empty by comparing with {@code ==} against instances returned by
      * {@code Option.none()}. There is no guarantee that it is a singleton.
@@ -77,7 +75,6 @@ public final class Option<@Covariant A>
      *
      * @param <A>   the class of the value
      * @param value the possibly-null value to describe
-     *
      * @return an {@code Option} with a present value if the specified value
      * is non-null, otherwise an empty {@code Option}
      */
@@ -146,11 +143,7 @@ public final class Option<@Covariant A>
      * @see #get()
      */
     public A getValue() {
-        if (empty) {
-            throw new NoSuchElementException("Option is empty!");
-        } else {
-            return value;
-        }
+        return get();
     }
 
     /**
@@ -201,9 +194,7 @@ public final class Option<@Covariant A>
      * @param <T>               Type of the exception to be thrown
      * @param exceptionSupplier The supplier which will return the exception to
      *                          be thrown
-     *
      * @return the present value
-     *
      * @throws T                    if there is no value present
      * @throws NullPointerException if no value is present and
      *                              {@code exceptionSupplier} is null
@@ -221,6 +212,7 @@ public final class Option<@Covariant A>
      *
      * @param f the procedure to apply.
      */
+    @Override
     public void forEach(ToVoidFunction1<? super A> f) {
         Objects.requireNonNull(f);
         if (!empty) f.invoke(value);
@@ -233,7 +225,8 @@ public final class Option<@Covariant A>
      *
      * @param mapper the function to apply
      */
-    public <B> Option<B> map(Function1<? super A, ? extends B> mapper) {
+    @Override
+    public <B> Functor<B> map(Function1<? super A, ? extends B> mapper) {
         return empty ? none() : Option.of(mapper.invoke(value));
     }
 
@@ -244,8 +237,20 @@ public final class Option<@Covariant A>
      *
      * @param mapper the function to apply
      */
-    public <B> Option<B> mapToSome(Function1<? super A, ? extends B> mapper) {
-        return empty ? none() : Option.of(mapper.invoke(value));
+    public <B> Functor<B> mapToSome(Function1<? super A, ? extends B> mapper) {
+        return map(mapper);
+    }
+
+    /**
+     * Returns a {@link Option} containing the result of applying {@code mapper}
+     * to this {@link Option}'s value if this {@link Option} is nonempty.
+     * Otherwise return {@link #None}.
+     *
+     * @param mapper the function to apply
+     */
+    @Override
+    public <B> Monad<B> flatMap(Function1<? super A, ? extends Monad<B>> mapper) {
+        return empty ? none() : mapper.invoke(value);
     }
 
     /**
@@ -287,6 +292,7 @@ public final class Option<@Covariant A>
         }
     }
 
+    @Override
     public boolean canEqual(Object that) {
         return that == this || that instanceof Option<?>;
     }
