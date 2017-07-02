@@ -91,7 +91,6 @@ public final class Option<@Covariant A>
     private final boolean empty;
     private final A value;
 
-
     private Option() {
         empty = true;
         value = null;
@@ -101,7 +100,6 @@ public final class Option<@Covariant A>
         empty = false;
         this.value = value;
     }
-
 
     public Iterator<A> iterator() {
         return empty ? Iterators.empty() : new OptionIterator();
@@ -186,7 +184,6 @@ public final class Option<@Covariant A>
         return empty ? null : value;
     }
 
-
     /**
      * Return the contained value, if present, otherwise throw an exception
      * to be created by the provided supplier.
@@ -233,17 +230,6 @@ public final class Option<@Covariant A>
     /**
      * Returns a {@link Option} containing the result of applying {@code mapper}
      * to this {@link Option}'s value if this {@link Option} is nonempty.
-     * Otherwise return {@link #Null}.
-     *
-     * @param mapper the function to apply
-     */
-    public <B> Functor<B> mapToSome(Function1<? super A, ? extends B> mapper) {
-        return map(mapper);
-    }
-
-    /**
-     * Returns a {@link Option} containing the result of applying {@code mapper}
-     * to this {@link Option}'s value if this {@link Option} is nonempty.
      * Otherwise return {@link #None}.
      *
      * @param mapper the function to apply
@@ -285,11 +271,7 @@ public final class Option<@Covariant A>
 
     @Override
     public String toString() {
-        if (empty) {
-            return "None";
-        } else {
-            return "Some(" + Objects.toString(value) + ")";
-        }
+        return empty ? "None" : "Some(" + Objects.toString(value) + ")";
     }
 
     @Override
