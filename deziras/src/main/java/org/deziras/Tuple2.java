@@ -42,6 +42,7 @@ public final class Tuple2<T1, T2>
 		$2 = t2;
 	}
 
+	@Override
 	public Object productElement(int n) {
 		switch (n) {
 			case 0:
@@ -58,6 +59,7 @@ public final class Tuple2<T1, T2>
 	 *
 	 * @return element 1 of this Tuple.
 	 */
+	@Override
 	public T1 _1() {
 		return $1;
 	}
@@ -78,6 +80,7 @@ public final class Tuple2<T1, T2>
 	 *
 	 * @return element 2 of this Tuple.
 	 */
+	@Override
 	public T2 _2() {
 		return $2;
 	}
@@ -93,14 +96,17 @@ public final class Tuple2<T1, T2>
 		return new Tuple2<>($1, value);
 	}
 
+	@Override
 	public T1 getKey() {
 		return _1();
 	}
 
+	@Override
 	public T2 getValue() {
 		return _2();
 	}
 
+	@Override
 	public T2 setValue(T2 value) {
 		throw new UnsupportedOperationException("Tuple#setValue");
 	}
