@@ -1,6 +1,6 @@
 package org.deziras.collection;
 
-import org.deziras.type.Equals;
+import org.deziras.base.Equals;
 import org.deziras.function.Function0;
 import org.deziras.function.Function1;
 import org.deziras.function.ToBoolFunction1;
@@ -15,7 +15,7 @@ import java.util.Iterator;
  * The root interface in the <i>collection hierarchy</i>.  E collection
  * represents a group of objects, known as its <i>elements</i>.
  *
- * @param <E> the type of elements in this collection
+ * @param <E> the base of elements in this collection
  *
  * @author Glavo
  * @since 0.1.0
@@ -48,9 +48,9 @@ public interface Collection<E>
 	 * @param mapper   the function to apply to each element.
 	 * @param supplier an implicit value of class CanBuildFrom which
 	 *                 determines the result class That from the current
-	 *                 representation type Repr and the new element type B .
-	 * @param <To>     the type of new collection
-	 * @param <B>      the element type of the returned collection.
+	 *                 representation base Repr and the new element base B .
+	 * @param <To>     the base of new collection
+	 * @param <B>      the element base of the returned collection.
 	 *
 	 * @return a new {@code collection} resulting from applying the given function
 	 * {@code f} to each element of this $coll and collecting the results.

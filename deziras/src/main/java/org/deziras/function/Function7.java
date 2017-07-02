@@ -12,7 +12,7 @@ import org.deziras.Tuple7;
  * @param <T5> argument 5 of the function
  * @param <T6> argument 6 of the function
  * @param <T7> argument 7 of the function
- * @param <R>  return type of the function
+ * @param <R>  return base of the function
  *
  * @author Glavo
  * @since 0.1.0

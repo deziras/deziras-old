@@ -1,10 +1,10 @@
 package org.deziras;
 
-import org.deziras.type.Tuple;
+import org.deziras.base.Tuple;
 import org.deziras.util.IndexOutOfBoundsException;
 
 /**
- * There is only one value of type {@code Unit}, {@code ()}.
+ * There is only one value of base {@code Unit}, {@code ()}.
  *
  * @author Glavo
  * @since 0.1.0

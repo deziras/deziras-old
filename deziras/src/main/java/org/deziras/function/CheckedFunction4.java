@@ -7,7 +7,7 @@ package org.deziras.function;
  * @param <T2> argument 2 of the function
  * @param <T3> argument 3 of the function
  * @param <T4> argument 4 of the function
- * @param <R>  return type of the function
+ * @param <R>  return base of the function
  *
  * @author Glavo
  * @since 0.1.0

@@ -16,7 +16,7 @@ public final class Nothing extends Null {
 	 * Nothing cannot have instance
 	 * So this method is invoked, `NullPointerException` will be thrown first.
 	 *
-	 * @param <T> any type
+	 * @param <T> any base
 	 * @return an absurd value
 	 */
 	public <@Contravariant T> T absurd() {

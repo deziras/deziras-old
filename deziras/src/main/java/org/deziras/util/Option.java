@@ -1,6 +1,6 @@
 package org.deziras.util;
 
-import org.deziras.type.Equals;
+import org.deziras.base.Equals;
 import org.deziras.Null;
 import org.deziras.annotations.Covariant;
 import org.deziras.function.Function0;
@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * Represents optional values.
  *
- * @param <A> The type of the optional value.
+ * @param <A> The base of the optional value.
  *
  * @author Glavo
  * @since 0.1.0
@@ -29,12 +29,12 @@ public final class Option<@Covariant A>
 
     /**
      * Narrows a widened {@code Option<? extends T>} to {@code Option<T>}
-     * by performing a type-safe cast.
+     * by performing a base-safe cast.
      *
      * @param option A {@code Option}.
-     * @param <A>    Component type of the {@code Option}.
+     * @param <A>    Component base of the {@code Option}.
      *
-     * @return the given {@code option} instance as narrowed type {@code Option<T>}.
+     * @return the given {@code option} instance as narrowed base {@code Option<T>}.
      */
     @SuppressWarnings("unchecked")
     public static <A> Option<A> narrow(Option<? extends A> option) {

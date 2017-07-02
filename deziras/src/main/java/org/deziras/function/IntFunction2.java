@@ -5,7 +5,7 @@ package org.deziras.function;
  * produces a result. This is the {@code (int, reference)} specialization for
  * {@link Function2}.
  *
- * @param <R> return type of the function
+ * @param <R> return base of the function
  *
  * @author Glavo
  * @since 0.1.0

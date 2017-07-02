@@ -1,4 +1,4 @@
-package org.deziras.type;
+package org.deziras.base;
 
 import org.deziras.*;
 
@@ -26,7 +26,7 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 1 element.
 	 *
-	 * @param <T1> type of element 1
+	 * @param <T1> base of element 1
 	 * @param t1   element 1
 	 * @return a {@code Tuple1} of 1 element.
 	 */
@@ -38,8 +38,8 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 2 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @return a {@code Tuple2} of 2 elements.
@@ -52,9 +52,9 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 3 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -68,10 +68,10 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 4 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -86,11 +86,11 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 5 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
-	 * @param <T5> type of element 5
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
+	 * @param <T5> base of element 5
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -106,12 +106,12 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 6 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
-	 * @param <T5> type of element 5
-	 * @param <T6> type of element 6
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
+	 * @param <T5> base of element 5
+	 * @param <T6> base of element 6
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -128,13 +128,13 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 7 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
-	 * @param <T5> type of element 5
-	 * @param <T6> type of element 6
-	 * @param <T7> type of element 7
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
+	 * @param <T5> base of element 5
+	 * @param <T6> base of element 6
+	 * @param <T7> base of element 7
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -152,14 +152,14 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 8 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
-	 * @param <T5> type of element 5
-	 * @param <T6> type of element 6
-	 * @param <T7> type of element 7
-	 * @param <T8> type of element 8
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
+	 * @param <T5> base of element 5
+	 * @param <T6> base of element 6
+	 * @param <T7> base of element 7
+	 * @param <T8> base of element 8
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3
@@ -178,15 +178,15 @@ public abstract class Tuple implements Product {
 	/**
 	 * Creates a Tuple of 9 elements.
 	 *
-	 * @param <T1> type of element 1
-	 * @param <T2> type of element 2
-	 * @param <T3> type of element 3
-	 * @param <T4> type of element 4
-	 * @param <T5> type of element 5
-	 * @param <T6> type of element 6
-	 * @param <T7> type of element 7
-	 * @param <T8> type of element 8
-	 * @param <T9> type of element 9
+	 * @param <T1> base of element 1
+	 * @param <T2> base of element 2
+	 * @param <T3> base of element 3
+	 * @param <T4> base of element 4
+	 * @param <T5> base of element 5
+	 * @param <T6> base of element 6
+	 * @param <T7> base of element 7
+	 * @param <T8> base of element 8
+	 * @param <T9> base of element 9
 	 * @param t1   element 1
 	 * @param t2   element 2
 	 * @param t3   element 3

@@ -1,4 +1,4 @@
-package org.deziras.type;
+package org.deziras.base;
 
 /**
  * An interface containing operations for equality.
@@ -22,5 +22,6 @@ public interface Equals {
 	/**
 	 * The universal equality method defined in {@link Object}.
 	 */
+	@Override
 	boolean equals(Object o);
 }

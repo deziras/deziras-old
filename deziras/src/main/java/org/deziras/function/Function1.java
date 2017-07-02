@@ -6,7 +6,7 @@ import org.deziras.Tuple1;
  * Represents a function with 1 argument.
  *
  * @param <T> argument 1 of the function
- * @param <R> return type of the function
+ * @param <R> return base of the function
  *
  * @author Glavo
  * @since 0.1.0

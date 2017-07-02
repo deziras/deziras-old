@@ -1,7 +1,7 @@
 package org.deziras;
 
-import org.deziras.type.Product6;
-import org.deziras.type.Tuple;
+import org.deziras.base.Product6;
+import org.deziras.base.Tuple;
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
 
@@ -10,12 +10,12 @@ import java.io.Serializable;
 /**
  * A Tuple of 6 elements.
  *
- * @param <T1> type of element 1
- * @param <T2> type of element 2
- * @param <T3> type of element 3
- * @param <T4> type of element 4
- * @param <T5> type of element 5
- * @param <T6> type of element 6
+ * @param <T1> base of element 1
+ * @param <T2> base of element 2
+ * @param <T3> base of element 3
+ * @param <T4> base of element 4
+ * @param <T5> base of element 5
+ * @param <T6> base of element 6
  *
  * @author Glavo
  * @since 0.1.0

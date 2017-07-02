@@ -39,7 +39,7 @@ public interface TraversableOnce<A>
 	 *
 	 * @param z   the start value.
 	 * @param op  the binary operator.
-	 * @param <B> the result type of the binary operator.
+	 * @param <B> the result base of the binary operator.
 	 *
 	 * @return the result of inserting {@code op} between consecutive elements of this
 	 * {@code TraversableOnce}, going left to right with the start value {@code z} on
@@ -60,7 +60,7 @@ public interface TraversableOnce<A>
 	 *
 	 * @param z   the start value.
 	 * @param op  the binary operator.
-	 * @param <B> the result type of the binary operator.
+	 * @param <B> the result base of the binary operator.
 	 *
 	 * @return the result of inserting {@code op} between consecutive elements of this
 	 * {@code TraversableOnce}, going right to left with the start value {@code z} on

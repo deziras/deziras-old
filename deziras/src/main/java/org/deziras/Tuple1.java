@@ -1,8 +1,8 @@
 package org.deziras;
 
 import org.deziras.annotations.Covariant;
-import org.deziras.type.Product1;
-import org.deziras.type.Tuple;
+import org.deziras.base.Product1;
+import org.deziras.base.Tuple;
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * A Tuple of one element.
  *
- * @param <T1> type of element 1
+ * @param <T1> base of element 1
  *
  * @author Glavo
  * @since 0.1.0

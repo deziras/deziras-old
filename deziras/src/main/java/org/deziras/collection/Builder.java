@@ -6,11 +6,11 @@ import org.deziras.function.Function1;
  * The base trait of all builders.
  * A builder lets one construct a collection incrementally, by adding
  * elements to the builder with {@link #append(Object)} and then converting
- * to the required collection type with {@link #result()}.
+ * to the required collection base with {@link #result()}.
  * <p>
  *
- * @param <Elem> the type of elements that get added to the builder.
- * @param <To>   the type of collection that it produced.
+ * @param <Elem> the base of elements that get added to the builder.
+ * @param <To>   the base of collection that it produced.
  *
  * @since 0.1.0
  */

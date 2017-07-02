@@ -14,7 +14,7 @@ import org.deziras.Tuple9;
  * @param <T7> argument 7 of the function
  * @param <T8> argument 8 of the function
  * @param <T9> argument 9 of the function
- * @param <R>  return type of the function
+ * @param <R>  return base of the function
  *
  * @author Glavo
  * @since 0.1.0
