@@ -12,11 +12,11 @@ import static org.junit.Assert.*;
 public class EitherTest {
     @Test
     public void left() throws Exception {
-        assertEquals(Either.left());
+        assertEquals(new Long(233L), Either.left(666).map(integer -> integer - 433L, Object::hashCode));
     }
 
     @Test
     public void right() throws Exception {
+        assertEquals(new Long(666L), Either.left(233).map(integer -> integer + 433L, Object::hashCode));
     }
-
 }
