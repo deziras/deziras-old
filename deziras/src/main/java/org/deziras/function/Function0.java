@@ -29,4 +29,6 @@ public interface Function0<@Covariant R>
     default Function1<Unit, R> tupled() {
         return u -> invoke();
     }
+
+
 }

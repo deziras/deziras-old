@@ -11,19 +11,19 @@ import java.lang.ref.WeakReference;
  * @since 0.1.0
  */
 public class WeakValue<A> {
-    private WeakReference<A> value;
-    private Function0<? extends A> supplier;
+	private WeakReference<A> value;
+	private Function0<? extends A> supplier;
 
 
-    public WeakValue(Function0<? extends A> supplier) {
-        Objects.requireNonNull(supplier);
-        this.supplier = supplier;
-        value = new WeakReference<>(null);
-    }
+	public WeakValue(Function0<? extends A> supplier) {
+		Objects.requireNonNull(supplier);
+		this.supplier = supplier;
+		value = new WeakReference<>(null);
+	}
 
-    public A get() {
-        A a = value.get();
-        if (a == null) a = Objects.requireNonNull(supplier.invoke());
-        return a;
-    }
+	public A get() {
+		A a = value.get();
+		if (a == null) a = Objects.requireNonNull(supplier.invoke());
+		return a;
+	}
 }
