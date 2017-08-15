@@ -1,6 +1,6 @@
 package org.deziras.util;
 
-import java.util.Iterator;
+import org.deziras.collection.Iterator;
 
 /**
  * Created by glavo on 17-5-7.

@@ -1,5 +1,6 @@
 package org.deziras.util.iterator;
 
+import org.deziras.collection.Iterator;
 import org.deziras.util.AbstractIterator;
 import org.deziras.util.NoSuchElementException;
 import org.deziras.Nothing;
@@ -11,25 +12,25 @@ import org.deziras.Nothing;
  * @since 1.0.0
  */
 public class EmptyIterator implements AbstractIterator<Nothing> {
-    public static final EmptyIterator Instance = new EmptyIterator();
+	public static final EmptyIterator Instance = new EmptyIterator();
 
-    public static EmptyIterator instance() {
-        return Instance;
-    }
+	public static EmptyIterator instance() {
+		return Instance;
+	}
 
-    protected EmptyIterator() {
+	protected EmptyIterator() {
 
-    }
+	}
 
-    public boolean hasNext() {
-        return false;
-    }
+	public boolean hasNext() {
+		return false;
+	}
 
-    public Nothing next() {
-        throw new NoSuchElementException();
-    }
+	public Nothing next() {
+		throw new NoSuchElementException();
+	}
 
-    public void remove() {
-        throw new UnsupportedOperationException("EmptyIterator.remove()");
-    }
+	public void remove() {
+		throw new UnsupportedOperationException("EmptyIterator.remove()");
+	}
 }

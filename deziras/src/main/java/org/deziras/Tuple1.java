@@ -1,8 +1,6 @@
 package org.deziras;
 
 import org.deziras.annotations.Covariant;
-import org.deziras.base.Product1;
-import org.deziras.base.Tuple;
 import org.deziras.util.IndexOutOfBoundsException;
 import org.deziras.util.Objects;
 

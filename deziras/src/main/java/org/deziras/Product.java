@@ -1,4 +1,4 @@
-package org.deziras.base;
+package org.deziras;
 
 import org.deziras.util.Objects;
 

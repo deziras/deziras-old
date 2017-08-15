@@ -1,4 +1,4 @@
-package org.deziras.base;
+package org.deziras;
 
 /**
  * An interface containing operations for equality.

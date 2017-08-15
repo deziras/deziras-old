@@ -1,6 +1,5 @@
 package org.deziras;
 
-import org.deziras.base.Equals;
 import org.deziras.function.Function1;
 
 

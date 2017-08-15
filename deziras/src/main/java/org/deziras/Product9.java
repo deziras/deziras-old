@@ -1,14 +1,14 @@
-package org.deziras.base;
+package org.deziras;
 
 import org.deziras.util.IndexOutOfBoundsException;
 
 /**
- * Product8 is a Cartesian product of 8 components.
+ * Product9 is a Cartesian product of 9 components.
  *
  * @author Glavo
  * @since 1.0.0
  */
-public interface Product8<T1, T2, T3, T4, T5, T6, T7, T8>
+public interface Product9<T1, T2, T3, T4, T5, T6, T7, T8, T9>
 		extends Product {
 
 	/**
@@ -68,13 +68,20 @@ public interface Product8<T1, T2, T3, T4, T5, T6, T7, T8>
 	T8 _8();
 
 	/**
+	 * A projection of element 9 of this Product.
+	 *
+	 * @return A projection of element 9.
+	 */
+	T9 _9();
+
+	/**
 	 * The size of this product.
 	 *
 	 * @return the size of this product
 	 */
 	@Override
 	default int productArity() {
-		return 8;
+		return 9;
 	}
 
 	/**
@@ -103,6 +110,8 @@ public interface Product8<T1, T2, T3, T4, T5, T6, T7, T8>
 				return _7();
 			case 7:
 				return _8();
+			case 8:
+				return _9();
 			default:
 				throw new IndexOutOfBoundsException(Integer.toString(n));
 		}

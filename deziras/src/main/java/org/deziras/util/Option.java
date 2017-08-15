@@ -1,10 +1,11 @@
 package org.deziras.util;
 
-import org.deziras.base.Equals;
+import org.deziras.Equals;
 import org.deziras.Null;
 import org.deziras.annotations.Covariant;
-import org.deziras.base.Functor;
-import org.deziras.base.Monad;
+import org.deziras.Functor;
+import org.deziras.Monad;
+import org.deziras.collection.Iterators;
 import org.deziras.function.Function0;
 import org.deziras.function.Function1;
 import org.deziras.function.ToBoolFunction1;
@@ -210,7 +211,7 @@ public final class Option<@Covariant A>
      * @param f the procedure to apply.
      */
     @Override
-    public void forEach(ToVoidFunction1<? super A> f) {
+    public void foreach(ToVoidFunction1<? super A> f) {
         Objects.requireNonNull(f);
         if (!empty) f.invoke(value);
     }

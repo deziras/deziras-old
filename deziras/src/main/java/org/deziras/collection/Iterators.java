@@ -1,6 +1,7 @@
-package org.deziras.util;
+package org.deziras.collection;
 
 import org.deziras.ToolClass;
+import org.deziras.util.Objects;
 import org.deziras.util.iterator.EmptyIterator;
 import org.deziras.util.iterator.EnumerationIterator;
 

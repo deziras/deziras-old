@@ -1,5 +1,7 @@
 package org.deziras.util.iterator;
 
+import org.deziras.collection.Iterator;
+
 import org.deziras.util.NoSuchElementException;
 
 /**
@@ -8,7 +10,7 @@ import org.deziras.util.NoSuchElementException;
  * @author Glavo
  * @since 1.0.0
  */
-public abstract class UniformIterator<E> implements java.util.Iterator<E> {
+public abstract class UniformIterator<E> implements Iterator<E> {
 	private boolean traversed = false;
 
 	public abstract E get();

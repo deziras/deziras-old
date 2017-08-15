@@ -1,4 +1,4 @@
-package org.deziras.base;
+package org.deziras;
 
 import org.deziras.annotations.Contravariant;
 import org.deziras.annotations.Covariant;

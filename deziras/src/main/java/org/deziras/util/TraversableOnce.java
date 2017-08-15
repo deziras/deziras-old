@@ -27,7 +27,7 @@ public interface TraversableOnce<A>
 	 * @param f the function that is applied for its side-effect to every element.
 	 *          The result of function {@code f}  is discarded.
 	 */
-	default void forEach(ToVoidFunction1<? super A> f) {
+	default void foreach(ToVoidFunction1<? super A> f) {
 		for (A a : this) f.invoke(a);
 	}
 

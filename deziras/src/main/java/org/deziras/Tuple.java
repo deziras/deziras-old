@@ -1,6 +1,4 @@
-package org.deziras.base;
-
-import org.deziras.*;
+package org.deziras;
 
 /**
  * The base class of all tuples.
